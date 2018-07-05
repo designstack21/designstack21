@@ -1,1 +1,1 @@
-web: ng serve --build
+web: npm start
