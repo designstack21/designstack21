@@ -46,6 +46,6 @@
     "tslint": "~5.9.1"
   },
   "scripts": {
-    "start": "ng build"
+    "start": "ng serve --open"
   }
 }
