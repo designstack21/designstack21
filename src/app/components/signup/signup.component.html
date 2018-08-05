@@ -1,0 +1,64 @@
+<div class="set-bg">
+    <div class="container">
+        <div class="signup-conatiner">
+            <div class="signup-inner">
+                <div class="signup">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <h3>Sign up</h3>
+                            <hr>
+                        </div>
+                    </div>
+                    <form name="form" (ngSubmit)="register()" novalidate>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">First Name</label>
+                                    <input type="text" (keyup)="validateInput()" [ngClass]="{'error':signup.errFirstName}" name="firstName" [(ngModel)]="signup.firstName" class="form-control" placeholder="User Name" required>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">Last Name</label>
+                                    <input type="text" (keyup)="validateInput()" name="lastName" [ngClass]="{'error' :signup.errLastName}" [(ngModel)]="signup.lastName" class="form-control" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="eamil" (keyup)="validateInput()" name="email" [ngClass]="{'error':signup.errEmail}" [(ngModel)]="signup.email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">Phone No</label>
+                                    <input type="number" (keyup)="validateInput()" name="phone" [ngClass]="{'error':signup.errPhoneNo}" [(ngModel)]="signup.phoneNo" class="form-control" placeholder="Phone No">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password" (keyup)="validateInput()" name="password" [ngClass]="{'error':signup.errPassword}" [(ngModel)]="signup.password" class="form-control" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">Conform Password</label>
+                                    <input type="password" (keyup)="validateInput()" name="cPassword" [ngClass]="{'error':signup.errCPassword}" [(ngModel)]="signup.cPassword" class="form-control" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-md-12">
+                                <div class="text-right">
+                                    <hr>
+                                    <button class="btn btn-primary" type="submit">Sing up</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
