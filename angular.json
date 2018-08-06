@@ -37,8 +37,8 @@
                                     "with": "src/environments/environment.prod.ts"
                                 },
                                 {
-                                    "replace": "server/config.ts",
-                                    "with": "server/config.prod.ts"
+                                    "replace": "server/config.js",
+                                    "with": "server/config.prod.js"
                                 }
                             ],
                             "optimization": true,
