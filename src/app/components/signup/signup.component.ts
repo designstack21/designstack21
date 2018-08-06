@@ -7,7 +7,7 @@ import { SignupService } from './signup.service';
 	styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent implements OnInit {
-	private signup = {
+	signup = {
 		firstName: '',
 		lastName: '',
 		phoneNo: '',
