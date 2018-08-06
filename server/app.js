@@ -20,7 +20,7 @@ connect();
 
 function connect() {
     var options = { server: { socketOptions: { keepAlive: 1 } } };
-    mongoose.connect('mongodb://localhost:27017/designstack21', options);
+    mongoose.connect(config.mongoConnection, options);
 }
 
 
