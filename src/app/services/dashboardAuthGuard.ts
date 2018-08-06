@@ -12,7 +12,7 @@ import { LoginService } from '../components/login/login.service';
 export class DashboardAuthGuard implements CanActivate {
 	constructor(private router: Router, private _loginService: LoginService) {
 	}
-	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) :Observable<boolean> {
 		return Observable.create(observer => {
 			this._loginService.isLogin()
 				.subscribe((res) => {

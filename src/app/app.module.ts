@@ -10,6 +10,7 @@ import { ClientModule } from './components/client/client.module';
 
 
 import { AppComponent } from './app.component';
+import { PublicComponent } from './components/public/public.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
@@ -24,12 +25,17 @@ import { AuthGuard } from './services/loginAuthGuard';
 
 
 const appRoutes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: 'home', component: HomeComponent },
-	{ path: 'services', component: ServicesComponent },
-	{ path: 'login', component: LoginComponent,  canActivate: [AuthGuard], },
-	{ path: 'contactus', component: ContactUsComponent },
-	{ path: 'signup', component: SignUpComponent,  canActivate: [AuthGuard], },
+	{
+		path: '', component: PublicComponent , 
+		children: [
+			{ path: '', component: HomeComponent },
+			{ path: 'home', component: HomeComponent },
+			{ path: 'services', component: ServicesComponent },
+			{ path: 'contactus', component: ContactUsComponent },
+		]
+	},
+	{ path: 'login', component: LoginComponent, canActivate: [AuthGuard], },
+	{ path: 'signup', component: SignUpComponent, canActivate: [AuthGuard], },
 ];
 
 
@@ -43,7 +49,8 @@ const appRoutes: Routes = [
 		ServicesComponent,
 		LoginComponent,
 		ContactUsComponent,
-		SignUpComponent
+		SignUpComponent,
+		PublicComponent
 	],
 	imports: [
 		BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule, ClientModule
