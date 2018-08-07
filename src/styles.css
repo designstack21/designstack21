@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-}
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {}
+
 .header-area {
     position: absolute;
     width: 100%;
     top: 0;
     z-index: 50;
 }
-.set-bg{
+
+.set-bg {
     background-image: url('./assets/img/bg.jpg');
 }
