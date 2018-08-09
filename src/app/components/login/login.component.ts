@@ -17,4 +17,7 @@ export class LoginComponent implements OnInit {
   googleLogin() {
     this.document.location.href = './auth/google';
   }
+  login(username, password) {
+
+  }
 }

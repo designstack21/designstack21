@@ -26,7 +26,7 @@ import { AuthGuard } from './services/loginAuthGuard';
 
 const appRoutes: Routes = [
 	{
-		path: '', component: PublicComponent , 
+		path: '', component: PublicComponent,
 		children: [
 			{ path: '', component: HomeComponent },
 			{ path: 'home', component: HomeComponent },
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
 		PublicComponent
 	],
 	imports: [
-		BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule, ClientModule
+		BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule, HttpClientModule, ClientModule
 	],
 	providers: [InterceptService,
 		{
