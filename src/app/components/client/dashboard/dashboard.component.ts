@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+	collapse = false;
   constructor() { }
   ngOnInit() {
+  }
+  collapseSideNav(){
+	this.collapse = !this.collapse;
   }
 }

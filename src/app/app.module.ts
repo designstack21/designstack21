@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterStateSnapshot } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 import { InterceptService } from './services/interceptor';
 import { ClientModule } from './components/client/client.module';
@@ -25,42 +26,43 @@ import { AuthGuard } from './services/loginAuthGuard';
 
 
 const appRoutes: Routes = [
-	{
-		path: '', component: PublicComponent , 
-		children: [
-			{ path: '', component: HomeComponent },
-			{ path: 'home', component: HomeComponent },
-			{ path: 'services', component: ServicesComponent },
-			{ path: 'contactus', component: ContactUsComponent },
-		]
-	},
-	{ path: 'login', component: LoginComponent, canActivate: [AuthGuard], },
-	{ path: 'signup', component: SignUpComponent, canActivate: [AuthGuard], },
+    {
+        path: '', component: PublicComponent,
+        children: [
+            { path: '', component: HomeComponent },
+            { path: 'home', component: HomeComponent },
+            { path: 'services', component: ServicesComponent },
+            { path: 'contactus', component: ContactUsComponent },
+        ]
+    },
+    { path: 'login', component: LoginComponent, canActivate: [AuthGuard], },
+    { path: 'signup', component: SignUpComponent, canActivate: [AuthGuard], },
 ];
 
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-		FooterComponent,
-		BannerComponent,
-		HomeComponent,
-		ServicesComponent,
-		LoginComponent,
-		ContactUsComponent,
-		SignUpComponent,
-		PublicComponent
-	],
-	imports: [
-		BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule, ClientModule
-	],
-	providers: [InterceptService,
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: InterceptService,
-			multi: true
-		}, LoginService, SignupService, AuthGuard],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        BannerComponent,
+        HomeComponent,
+        ServicesComponent,
+        LoginComponent,
+        ContactUsComponent,
+        SignUpComponent,
+        PublicComponent
+    ],
+    imports: [
+        BrowserModule, RouterModule.forRoot(appRoutes), FormsModule,
+        HttpClientModule, Angular2FontawesomeModule, ClientModule
+    ],
+    providers: [InterceptService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptService,
+            multi: true
+        }, LoginService, SignupService, AuthGuard],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

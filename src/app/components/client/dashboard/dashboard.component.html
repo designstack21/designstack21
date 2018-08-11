@@ -1,8 +1,17 @@
 <app-ctn-navbar></app-ctn-navbar>
-<!--
 
-<mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>-->
+<div class="dashboard-container">
+    <div class="sidenav" [ngClass]="{'collapse':collapse}">
+        <app-ctn-sidenav></app-ctn-sidenav>
+    </div>
+    <div class="main-outer">
+        <div class="main-container">
+            <button (click)="collapseSideNav()">collapse</button>
+
+            <router-outlet></router-outlet>
+        </div>
+        <div class="copy-right">
+
+        </div>
+    </div>
+</div>
