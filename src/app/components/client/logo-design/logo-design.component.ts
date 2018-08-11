@@ -18,16 +18,14 @@ export class LogoDesignComponent implements OnInit {
     if (logoTitle.value.length > 10) {
 
       let inDebounce;
-      return function () {
-        const context = this;
-        const args = arguments;
-        clearTimeout(inDebounce);
-        inDebounce = setTimeout(() => {
-          this._logoDesignService.progressiveSave(logoTitle).subscribe((res: any) => {
-            console.log('progressiveSave res ', res);
-          })
-        }, 3000)
-      }
+      // return function () {
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => {
+        this._logoDesignService.progressiveSave(logoTitle);
+      }, 3000)
+      // }
     }
   }
 
