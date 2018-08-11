@@ -26,17 +26,17 @@ import { AuthGuard } from './services/loginAuthGuard';
 
 
 const appRoutes: Routes = [
-    {
-        path: '', component: PublicComponent,
-        children: [
-            { path: '', component: HomeComponent },
-            { path: 'home', component: HomeComponent },
-            { path: 'services', component: ServicesComponent },
-            { path: 'contactus', component: ContactUsComponent },
-        ]
-    },
-    { path: 'login', component: LoginComponent, canActivate: [AuthGuard], },
-    { path: 'signup', component: SignUpComponent, canActivate: [AuthGuard], },
+	{
+		path: '', component: PublicComponent,
+		children: [
+			{ path: '', component: HomeComponent },
+			{ path: 'home', component: HomeComponent },
+			{ path: 'services', component: ServicesComponent },
+			{ path: 'contactus', component: ContactUsComponent },
+		]
+	},
+	{ path: 'login', component: LoginComponent, canActivate: [AuthGuard], },
+	{ path: 'signup', component: SignUpComponent, canActivate: [AuthGuard], },
 ];
 
 
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
         PublicComponent
     ],
     imports: [
-        BrowserModule, RouterModule.forRoot(appRoutes), FormsModule,
+        BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule,
         HttpClientModule, Angular2FontawesomeModule, ClientModule
     ],
     providers: [InterceptService,

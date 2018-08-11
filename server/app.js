@@ -12,7 +12,7 @@ var secureRoute = require('./routes/secureRoute');
 var config = require('./config');
 
 let app = express();
-app.set('port', config.port); // Set port to 3000 or the provided PORT variable
+app.set('port', process.env.PORT  || config.port); // Set port to 3000 or the provided PORT variable
 // to connect to mogo database
 mongoose.connection.on('error', console.log);
 mongoose.connection.on('disconnected', connect);
