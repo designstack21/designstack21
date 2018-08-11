@@ -5,11 +5,11 @@
 		<mat-card-title>Add information about your creative logo</mat-card-title>
 
 		<mat-form-field>
-			<input matInput placeholder="Title">
+			<input matInput placeholder="Title" #logoTitle>
 		</mat-form-field>
 
 		<mat-form-field>
-			<input matInput placeholder="Caption">
+			<input matInput placeholder="Caption" #logoCaption>
 		</mat-form-field>
 
 		<br>
@@ -24,7 +24,7 @@
 		</label>
 
 		<mat-card-footer>
-			<button mat-raised-button color="primary">Save</button>
+			<button mat-raised-button color="primary" (click)="saveLogoInfo(logoTitle, logoCaption)">Save</button>
 		</mat-card-footer>
 
 

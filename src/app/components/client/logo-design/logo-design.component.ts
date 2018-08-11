@@ -12,4 +12,9 @@ export class LogoDesignComponent implements OnInit {
   ngOnInit() {
   }
 
+  saveLogoInfo(logoTitle: HTMLInputElement, logoCaption: HTMLInputElement) {
+    console.log(logoTitle.value);
+    console.log(logoCaption.value);
+  }
+
 }
