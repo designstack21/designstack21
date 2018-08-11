@@ -30,7 +30,6 @@ const appRoutes: Routes = [
             { path: 'order', component: OrderComponent },
 			{ path: 'logodesign', component: LogoDesignComponent },
             ...invitationRoutes,
-            { path: 'logodesign', component: LogoDesignComponent }
         ]
     },
 ];
