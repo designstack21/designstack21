@@ -32,18 +32,23 @@ let loginController = {
                 console.log(err);
                 return res.send(err);
             }
-            return res.redirect(`./login?username=${req.body.email}&password=${(Buffer.from(req.body.password, 'base64').toString())}`)
+            return res.redirect(`./login?username=${req.body.email}&password=${req.body.password}`)
         });
 
     },
     login: function (req, res) {
-        return passport.authenticate('local', { failureRedirect: '/auth/redirecto?url=login', successRedirect: '/auth/redirecto?url=dashboard' });
+        return passport.authenticate('local', { failureRedirect: '/auth/redirecto?msg=Invalid username and password', successRedirect: '/auth/redirecto?url=dashboard' });
     },
     logout: function (req, res) {
         req.logout();
         return res.status(302).send({ url: '/' });
     },
     redirecto: function (req, res) {
+
+        if (!req.query.url) {
+            return res.status(req.query.statusCode || 200).send({ msg: req.query.msg });
+        }
+
         return res.status(302).send({ url: req.query.url });
     },
 }

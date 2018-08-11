@@ -6,6 +6,7 @@
             <div class="avatar"></div>
             <div class="form-box">
                 <div action="" method="">
+                    <label for="" class="loginError">{{loginError}}</label>
                     <input name="user" type="text" placeholder="username" #username>
                     <input type="password" placeholder="password" #password>
                     <button class="btn btn-info btn-block login" (click)="login(username,password)">Login</button>

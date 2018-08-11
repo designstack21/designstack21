@@ -15,9 +15,7 @@ export class LoginService {
         return this.http.get(this.isUserLogin);
     }
     login(username, password) {
-        // return this.http.get(this.loginUrl + `?password=${password}&username=${username}`);
-        return this.http.post(this.loginUrl, { username: username, password: password });
-        // return this.http.post(this.loginUrl, username, password);
+        return this.http.get(this.loginUrl + `?password=${window.btoa(password)}&username=${username}`);
     }
     logout() {
         return this.http.get(this.logoutUrl);
