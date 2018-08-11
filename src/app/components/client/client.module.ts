@@ -14,7 +14,7 @@ import { AppServiceComponent } from './appService/appService.component';
 import { AppSerceService } from './appService/app-service.service';
 import { LogoDesignComponent } from './logo-design/logo-design.component';
 
-import { MatModule } from './mat.module'
+import { MatModule } from './mat.module';
 import { InvitaionModule, invitationRoutes } from './invitation-card/invitation.module';
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
@@ -29,7 +29,8 @@ const appRoutes: Routes = [
             { path: 'service', component: AppServiceComponent, },
             { path: 'order', component: OrderComponent },
 			{ path: 'logodesign', component: LogoDesignComponent },
-            ...invitationRoutes
+            ...invitationRoutes,
+            { path: 'logodesign', component: LogoDesignComponent }
         ]
     },
 ];

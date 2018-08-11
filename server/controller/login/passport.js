@@ -70,6 +70,7 @@ passport.use(new LocalStrategy(
     function (username, password, done) {
         console.log('inside local statergy', username);
         console.log(username, password);
+        password = (Buffer.from(password, 'base64').toString());
         User.findOne({ email: username }, function (err, user) {
             console.log('find user ');
             console.log(err, user);

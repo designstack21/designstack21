@@ -11,6 +11,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginError: string;
   constructor(@Inject(DOCUMENT) private document: any, private _loginService: LoginService) { }
   ngOnInit() {
   }
@@ -20,8 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(username: HTMLInputElement, password: HTMLInputElement) {
-    this._loginService.login(username.value, password.value).subscribe(res => {
+    this._loginService.login(username.value, password.value).subscribe((res: any) => {
       console.log('login res ', res);
+      this.loginError = res.msg;
     })
   }
 }
