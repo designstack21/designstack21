@@ -1,0 +1,25 @@
+<mat-card class="card">
+    <!--<mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>-->
+    <div class="slider">
+        <slideshow [height]="'160px'" [imageUrls]="imageSources"></slideshow>
+    </div>
+    <mat-card-content>
+        <div class="card-details">
+            <label routerLink="/dashboard/carddetails/12354" class="card-name"><span>card-</span>56325</label>
+            <label class="card-price"><span><i class="fa fa-inr" ></i>  </span>17.50</label>
+            <br>
+            <span>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</span>
+        </div>
+    </mat-card-content>
+    <mat-card-footer class="card-footer">
+        <button mat-button routerLink="/dashboard/carddetails/12354">Details</button>
+        <button mat-button>SHARE</button>
+        <button mat-icon-button color="warn">
+            <i class="fa fa-heart"></i>
+        </button>
+    </mat-card-footer>
+</mat-card>

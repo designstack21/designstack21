@@ -2230,3 +2230,36 @@ textarea.error,
     opacity: .2;
     transition: 0s
 }
+
+.slider .slideshow-container .arrow-container .arrow {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.slider .slideshow-container .arrow-container.next:before,
+.slider .slideshow-container .arrow-container.prev:before {
+    background-image: none !important;
+}
+
+.btn-right {
+    float: right;
+}
+
+.btn-left {
+    float: left;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border: 1px solid gray;
+}

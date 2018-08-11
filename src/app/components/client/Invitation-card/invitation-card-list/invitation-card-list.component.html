@@ -1,4 +1,43 @@
-<h1>this is invitaion card list</h1>
-<button mat-button routerLink="/">
-        <!--<mat-icon>home</mat-icon> -->
-        Home</button>
+<mat-card class="filter">
+    <mat-form-field class="filter-by">
+        <mat-select placeholder="Card Type">
+            <mat-option *ngFor="let card of cardType" [value]="card.id">
+                {{card.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-by">
+        <mat-select placeholder="Size Type">
+            <mat-option *ngFor="let card of cardType" [value]="card.id">
+                {{card.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-by">
+        <mat-select placeholder="Size Type">
+            <mat-option *ngFor="let card of cardType" [value]="card.id">
+                {{card.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div>
+        <button mat-button>Clear</button>
+    </div>
+</mat-card>
+<div class="search-result">
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <app-ctn-card></app-ctn-card>
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
+</div>

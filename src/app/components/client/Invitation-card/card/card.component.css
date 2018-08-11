@@ -1,0 +1,43 @@
+.card {
+    width: 295px;
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 20px;
+}
+
+.card-slider {
+    width: 100%;
+}
+
+.slider {
+    margin-top: -24px;
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+.card-details {
+    margin-top: 10px;
+}
+
+.card-name {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.card-name span,
+.card-price span {
+    color: #F44336;
+}
+
+.card-footer {
+    padding: 0px 24px;
+    background-color: #f1f1f1;
+}
+
+.card-price {
+    right: 24px;
+    font-weight: bold;
+    position: absolute;
+}

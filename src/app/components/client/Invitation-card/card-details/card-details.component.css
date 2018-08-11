@@ -1,0 +1,14 @@
+.card-details {
+    display: flex;
+}
+
+.card-slider {
+    width: 400px;
+}
+
+.card-details {
+    flex: 1;
+    padding: 20px;
+    background-color: #FFF;
+    display: block;
+}

@@ -1,0 +1,13 @@
+.search-result {
+    padding-top: 30px;
+}
+
+.filter {
+    display: flex;
+    padding: 18px 18px 0px 18px;
+}
+
+.filter-by {
+    flex: 1;
+    margin-right: 20px;
+}
