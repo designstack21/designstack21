@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
     private googleLoginUrl = './auth/google';
     private isUserLogin = './auth/isUserLogin';
-    private loginUrl = './auth/loginUrl';
+    private loginUrl = './auth/login';
+    private logoutUrl = './auth/logout';
     constructor(private http: HttpClient) { }
     googleLogin() {
         return this.http.get(this.googleLoginUrl);
@@ -14,6 +15,9 @@ export class LoginService {
         return this.http.get(this.isUserLogin);
     }
     login(username, password) {
-        return this.http.get(this.loginUrl);
+        return this.http.get(this.loginUrl + `?password=${password}&username=${username}`);
+    }
+    logout() {
+        return this.http.get(this.logoutUrl);
     }
 }
