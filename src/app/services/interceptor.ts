@@ -44,7 +44,7 @@ export class InterceptService implements HttpInterceptor {
 
 				if (error instanceof HttpErrorResponse) {
 					if (error.status === 302) {
-						this.router.navigate( [error.error.url] );
+						this.router.navigate([error.error.url]);
 					}
 				}
 				// http response status code

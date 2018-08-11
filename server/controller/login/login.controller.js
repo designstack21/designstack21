@@ -2,17 +2,17 @@ let passport = require('passport');
 const User = require('../../model/user.model');
 
 let loginController = {
-    isUserLogin: function(req, res) {
+    isUserLogin: function (req, res) {
         return res.send(req.isAuthenticated());
     },
-    googleLogin: function(req, res) {
-        return passport.authenticate('google', { scope: ['profile', 'email'] })
+    googleLogin: function (req, res) {
+        return passport.authenticate('google', { scope: ['profile', 'email'] });
     },
-    googleResponce: function() {
+    googleResponce: function () {
         console.log('gooogle calback')
         return passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/dashboard' });
     },
-    signUp: async function(req, res) {
+    signUp: async function (req, res) {
         console.log('hi1')
         let user = await User.findOne({ 'email': req.body.email }).exec();
         if (user) {
@@ -25,21 +25,26 @@ let loginController = {
         newUser.lastName = req.body.lastName;
         newUser.phone = req.body.phoneNo;
         newUser.email = req.body.email;
-        newUser.setPassword(req.body.password);
+        console.log('decypt pass: ', (Buffer.from(req.body.password, 'base64').toString()));
+        newUser.setPassword((Buffer.from(req.body.password, 'base64').toString()));
         await newUser.save(err => {
             if (err) {
                 console.log(err);
                 return res.send(err);
             }
-            return res.redirect(`./login?username=${req.body.email}&password=${req.body.password}`)
+            return res.redirect(`./login?username=${req.body.email}&password=${(Buffer.from(req.body.password, 'base64').toString())}`)
         });
 
     },
-    login: function() {
-        return passport.authenticate('local', { failureRedirect: '/login', successRedirect: '/auth/redirecto?url=dashboard' });
+    login: function (req, res) {
+        return passport.authenticate('local', { failureRedirect: '/auth/redirecto?url=login', successRedirect: '/auth/redirecto?url=dashboard' });
     },
-    redirecto: function(req, res) {
+    logout: function (req, res) {
+        req.logout();
+        return res.status(302).send({ url: '/' });
+    },
+    redirecto: function (req, res) {
         return res.status(302).send({ url: req.query.url });
-    }
+    },
 }
 module.exports = loginController;

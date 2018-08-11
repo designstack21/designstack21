@@ -1,4 +1,4 @@
-<mat-card class="service" *ngFor="let service of services" [routerLink]="service.path">
+<mat-card class="service" *ngFor="let service of services" [routerLink]="'/dashboard'+service.path">
     <div class="serice-container">
         <div class="serice-img">
             <img [src]="service.img">

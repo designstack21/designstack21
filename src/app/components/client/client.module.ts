@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppServiceComponent } from './appService/appService.component';
 import { AppSerceService } from './appService/app-service.service';
+import { LogoDesignComponent } from './logo-design/logo-design.component';
 
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
             { path: '', redirectTo: 'service', pathMatch: 'full' },
             { path: 'service', component: AppServiceComponent, },
             { path: 'order', component: OrderComponent },
+			{ path: 'logodesign', component: LogoDesignComponent }
         ]
     },
 ];
@@ -40,7 +42,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent,
-        AppServiceComponent
+        AppServiceComponent, LogoDesignComponent
     ],
     imports: [
         RouterModule.forChild(appRoutes), BrowserAnimationsModule,

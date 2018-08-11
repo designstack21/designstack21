@@ -15,9 +15,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   googleLogin() {
+    console.log('href ', this.document.location.href);
     this.document.location.href = './auth/google';
   }
-  login(username, password) {
 
+  login(username: HTMLInputElement, password: HTMLInputElement) {
+    this._loginService.login(username.value, password.value).subscribe(res => {
+      console.log('login res ', res);
+    })
   }
 }

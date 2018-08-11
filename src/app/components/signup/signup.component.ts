@@ -36,9 +36,9 @@ export class SignUpComponent implements OnInit {
 			lastName: this.signup.lastName,
 			email: this.signup.email,
 			phoneNo: this.signup.phoneNo,
-			password: this.signup.password
+			password: window.btoa(this.signup.password)
 		}).subscribe(res => {
-			console.log(res);
+			console.log("sign up response ", res);
 		});
 	}
 	validateInput() {

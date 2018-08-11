@@ -1,6 +1,7 @@
 <!--<mat-toolbar color="primary">
     <mat-toolbar-row>
         <button mat-button>Click me!</button>
+        <button mat-button (click)='logout()'>Logout</button>
     </mat-toolbar-row>
 </mat-toolbar>-->
 
@@ -8,7 +9,7 @@
 <mat-toolbar color="primary">
 
     <button mat-button routerLink="/">
-    <!--<mat-icon>home</mat-icon> -->
+        <!--<mat-icon>home</mat-icon> -->
         Home</button>
 
     <!-- This fills the remaining space of the current row -->
@@ -16,9 +17,10 @@
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
         <button mat-button routerLink="/dashboard/order">Products</button>
         <button mat-button routerLink="/dashboard">Dashboard</button>
+        <button mat-button (click)="logout()">Logout</button>
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-     <mat-icon>menu</mat-icon>
+        <mat-icon>menu</mat-icon>
     </button>
 
 </mat-toolbar>
