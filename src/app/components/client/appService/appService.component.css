@@ -1,0 +1,35 @@
+.service {
+    width: 295px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.serice-container {
+    display: flex;
+    cursor: pointer;
+}
+
+.serice-img {
+    width: 100px;
+    height: 100px;
+    background-color: #f1f1f1;
+}
+
+.serice-img img {
+    width: 100px;
+    height: 100px;
+}
+
+.service-details {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    text-justify: auto;
+}
+
+.service-title {
+    font-weight: bold;
+    font-size: 20px;
+}

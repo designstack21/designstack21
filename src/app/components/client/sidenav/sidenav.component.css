@@ -56,7 +56,7 @@
     border-top: 1px solid #f1f1f1;
 }
 
-.side-menu li.menu-item.active {
+.side-menu li.menu-item.active .sub-menu li:last-child {
     border-bottom: none;
 }
 

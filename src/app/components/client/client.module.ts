@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderComponent } from './order/order.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { AppServiceComponent } from './appService/appService.component';
+import { AppSerceService } from './appService/app-service.service';
 
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
@@ -17,32 +19,35 @@ import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
 
 import {
     MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatToolbarModule,
-    MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule
+    MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatCardModule
 } from '@angular/material';
+
+const materialModules = [MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatToolbarModule,
+    MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatCardModule]
 
 const appRoutes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent,
-        // canActivate: [DashboardAuthGuard],
+        canActivate: [DashboardAuthGuard],
         children: [
-            {
-                path: 'order', component: OrderComponent
-            }
+            { path: '', redirectTo: 'service', pathMatch: 'full' },
+            { path: 'service', component: AppServiceComponent, },
+            { path: 'order', component: OrderComponent },
         ]
     },
 ];
 
 @NgModule({
     declarations: [
-        DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent
+        DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent,
+        AppServiceComponent
     ],
     imports: [
-        RouterModule.forChild(appRoutes), BrowserAnimationsModule, MatDatepickerModule,
-        MatFormFieldModule, MatNativeDateModule,
-        MatInputModule, MatToolbarModule, MatButtonModule,
-        FlexLayoutModule, MatSidenavModule, MatIconModule, MatMenuModule,
-        Angular2FontawesomeModule
+        RouterModule.forChild(appRoutes), BrowserAnimationsModule,
+        ...materialModules,
+        FlexLayoutModule,
+        Angular2FontawesomeModule, MatCardModule
     ],
-    providers: [DashboardAuthGuard],
+    providers: [DashboardAuthGuard, AppSerceService],
 })
 export class ClientModule { }
