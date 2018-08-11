@@ -1,7 +1,7 @@
 .service {
     width: 295px;
     float: left;
-    margin-right: 20px;
+    margin-right: 16px;
     margin-bottom: 20px;
     padding: 0px;
 }
@@ -32,4 +32,8 @@
 .service-title {
     font-weight: bold;
     font-size: 20px;
+}
+
+.small {
+    font-size: 78%;
 }
