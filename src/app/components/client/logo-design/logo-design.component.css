@@ -4,7 +4,19 @@
 }
 
 .logo-container>* {
-    width: 60%;
+    width: 100%;
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.mat-card-footer {
+    padding: 23px;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    text-align: right;
+    background-color: #f1f1f1;
 }
 
 .custom-file {
