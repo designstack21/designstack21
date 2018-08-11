@@ -12,10 +12,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppServiceComponent } from './appService/appService.component';
 import { AppSerceService } from './appService/app-service.service';
-import { LogoDesignComponent } from './logo-design/logo-design.component';
+
 
 import { MatModule } from './mat.module';
-import { InvitaionModule, invitationRoutes } from './invitation-card/invitation.module';
+import { InvitaionModule, invitationRoutes } from './Invitation-card/invitation.module';
+import { LogoDesignModule, logoDesignRoutes } from './logo-design/logo-design.module';
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
 
@@ -28,8 +29,7 @@ const appRoutes: Routes = [
             { path: '', redirectTo: 'service', pathMatch: 'full' },
             { path: 'service', component: AppServiceComponent, },
             { path: 'order', component: OrderComponent },
-			{ path: 'logodesign', component: LogoDesignComponent },
-            ...invitationRoutes,
+            ...invitationRoutes, ...logoDesignRoutes
         ]
     },
 ];
@@ -37,12 +37,12 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent,
-        AppServiceComponent, LogoDesignComponent
+        AppServiceComponent
     ],
     imports: [
         RouterModule.forChild(appRoutes), BrowserAnimationsModule,
         FlexLayoutModule, MatModule,
-        Angular2FontawesomeModule, InvitaionModule
+        Angular2FontawesomeModule, InvitaionModule, LogoDesignModule
     ],
     providers: [DashboardAuthGuard, AppSerceService],
 })
