@@ -34,7 +34,7 @@ const appRoutes: Routes = [
             { path: '', redirectTo: 'service', pathMatch: 'full' },
             { path: 'service', component: AppServiceComponent, },
             { path: 'order', component: OrderComponent },
-			{ path: 'logodesign', component: LogoDesignComponent }
+            { path: 'logodesign', component: LogoDesignComponent }
         ]
     },
 ];
@@ -48,7 +48,8 @@ const appRoutes: Routes = [
         RouterModule.forChild(appRoutes), BrowserAnimationsModule,
         ...materialModules,
         FlexLayoutModule,
-        Angular2FontawesomeModule, MatCardModule
+        Angular2FontawesomeModule, MatCardModule, MatInputModule,
+        MatFormFieldModule
     ],
     providers: [DashboardAuthGuard, AppSerceService],
 })
