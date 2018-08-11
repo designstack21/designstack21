@@ -6,7 +6,7 @@ router.get('/google', loginController.googleLogin());
 router.get('/google/callback', loginController.googleResponce());
 router.get('/isUserLogin', loginController.isUserLogin);
 router.post('/signup', loginController.signUp);
-router.get('/login', loginController.login());
+router.post('/login', loginController.login());
 router.get('/logout', loginController.logout);
 router.get('/redirecto', loginController.redirecto);
 

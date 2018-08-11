@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
     logout() {
         this._loginService.logout().subscribe(res => {
-            // console.log('res ', res);
+            console.log('logout res ', res);
         })
     }
 

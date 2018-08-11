@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderComponent } from './order/order.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { LogoDesignComponent } from './logo-design/logo-design.component';
 
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
@@ -20,6 +21,7 @@ import {
     MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule
 } from '@angular/material';
 
+
 const appRoutes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent,
@@ -27,6 +29,9 @@ const appRoutes: Routes = [
         children: [
             {
                 path: 'order', component: OrderComponent
+            },
+            {
+                path: 'logodesign', component: LogoDesignComponent
             }
         ]
     },
@@ -34,7 +39,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent
+        DashboardComponent, OrderComponent, NavbarComponent, SidenavComponent, LogoDesignComponent
     ],
     imports: [
         RouterModule.forChild(appRoutes), BrowserAnimationsModule, MatDatepickerModule,

@@ -68,7 +68,7 @@ passport.use(new GoogleStrategy({
 
 passport.use(new LocalStrategy(
     function (username, password, done) {
-        console.log('inside local statergy');
+        console.log('inside local statergy', username);
         console.log(username, password);
         User.findOne({ email: username }, function (err, user) {
             console.log('find user ');

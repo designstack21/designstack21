@@ -32,11 +32,11 @@ let loginController = {
                 console.log(err);
                 return res.send(err);
             }
-            return res.redirect(`./login?username=${req.body.email}&password=${req.body.password}`)
+            return res.redirect(`./login?username=${req.body.email}&password=${(Buffer.from(req.body.password, 'base64').toString())}`)
         });
 
     },
-    login: function () {
+    login: function (req, res) {
         return passport.authenticate('local', { failureRedirect: '/auth/redirecto?url=login', successRedirect: '/auth/redirecto?url=dashboard' });
     },
     logout: function (req, res) {
