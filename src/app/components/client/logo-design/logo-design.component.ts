@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoDesignService } from './logo-design.service';
 
 @Component({
   selector: 'app-logo-design',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoDesignComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private _logoDesignService: LogoDesignService) { }
 
   ngOnInit() {
+  }
+
+  progressiveSave(logoTitle: HTMLInputElement) {
+    if (logoTitle.value.length > 10) {
+
+      let inDebounce;
+      // return function () {
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => {
+        this._logoDesignService.progressiveSave(logoTitle);
+      }, 3000)
+      // }
+    }
   }
 
   saveLogoInfo(logoTitle: HTMLInputElement, logoCaption: HTMLInputElement) {
