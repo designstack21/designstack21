@@ -1,14 +1,19 @@
-.card-details {
-    display: flex;
+.card-details-container {
+    background-color: #FFF;
+    padding: 10px;
 }
 
 .card-slider {
     width: 400px;
+    display: inline-block;
 }
 
 .card-details {
-    flex: 1;
     padding: 20px;
     background-color: #FFF;
-    display: block;
+    display: inline-block;
+}
+
+.tab-details {
+    padding: 20px;
 }

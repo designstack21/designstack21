@@ -1,3 +1,5 @@
+<app-loading *ngIf="!services"></app-loading>
+
 <mat-card class="service" *ngFor="let service of services" [routerLink]="'/dashboard'+service.path">
     <div class="serice-container">
         <div class="serice-img">

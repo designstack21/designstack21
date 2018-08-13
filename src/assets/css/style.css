@@ -2231,13 +2231,13 @@ textarea.error,
     transition: 0s
 }
 
-.slider .slideshow-container .arrow-container .arrow {
+.slideshow-container .arrow-container .arrow {
     width: 15px !important;
     height: 15px !important;
 }
 
-.slider .slideshow-container .arrow-container.next:before,
-.slider .slideshow-container .arrow-container.prev:before {
+.slideshow-container .arrow-container.next:before,
+.slideshow-container .arrow-container.prev:before {
     background-image: none !important;
 }
 
@@ -2262,4 +2262,12 @@ textarea.error,
 ::-webkit-scrollbar-thumb {
     background-color: gray;
     border: 1px solid gray;
+}
+
+span.brand {
+    color: #F44336;
+}
+
+.bold {
+    font-weight: bold;
 }
