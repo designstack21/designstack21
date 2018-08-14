@@ -10,5 +10,8 @@ let ServiceController = require('../controller/service/service.controller');
 router.post('/service', ServiceController.addService);
 router.get('/service', ServiceController.getService);
 
+let LogoController = require('../controller/logo/logoController');
+router.post('/logoFormSave', LogoController.save);
+
 
 module.exports = router

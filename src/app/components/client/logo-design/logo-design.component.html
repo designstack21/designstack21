@@ -1,20 +1,23 @@
 <div class="logo-container">
 
+<form [formGroup]="logoForm" (ngSubmit)="saveLogoInfo(logoForm)">
+
 	<mat-card>
 
 		<mat-card-title>Add information about your creative logo</mat-card-title>
 
 		<mat-form-field>
-			<input matInput placeholder="Title" #logoTitle (keyup)="progressiveSave(logoTitle)">
+			<input matInput placeholder="Title" #logoTitle formControlName="logoTitle" required>
 		</mat-form-field>
 
+
 		<mat-form-field>
-			<input matInput placeholder="Caption" #logoCaption>
+			<input matInput placeholder="Caption" formControlName="logoCaption" #logoCaption>
 		</mat-form-field>
 
 		<br>
 
-		<quill-editor [style]="{height: '250px'}"></quill-editor>
+		<angular-editor formControlName="logoDescription"  #logoDescription [config]="editorConfig"></angular-editor>
 
 		<br>
 
@@ -24,11 +27,13 @@
 		</label>
 
 		<mat-card-footer>
-			<button mat-raised-button color="primary" (click)="saveLogoInfo(logoTitle, logoCaption)">Save</button>
+			<button mat-raised-button color="primary" [disabled]="logoForm.invalid">Save</button>
 		</mat-card-footer>
 
 
 	</mat-card>
+
+</form>
 
 
 </div>

@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LogoDesignService {
 
+  private logoFormUrl = '/logoFormSave';
+
   constructor(private http: HttpClient) { }
 
-  progressiveSave(logoTitle) {
-    console.log(' logoTitle ', logoTitle);
-    // return this.http.post(logoTitle, { 'logoTitle': logoTitle });
+  logoFormSave(form) {
+    console.log('saving logo form...', form);
+    return this.http.post(this.logoFormUrl, form);
   }
 }

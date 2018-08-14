@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoDesignComponent } from './logo-design.component';
 import { Routes } from '@angular/router';
 import { MatModule } from '../mat.module';
-import { QuillModule } from 'ngx-quill'
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 export const logoDesignRoutes: Routes = [
 	{ path: 'logodesign', component: LogoDesignComponent }
@@ -10,7 +12,7 @@ export const logoDesignRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		MatModule, QuillModule
+		MatModule, FormsModule, ReactiveFormsModule, AngularEditorModule
 	],
 	declarations: [
 		LogoDesignComponent
