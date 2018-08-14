@@ -17,6 +17,7 @@ import { AppSerceService } from './appService/app-service.service';
 import { MatModule } from './mat.module';
 import { InvitaionModule, invitationRoutes } from './Invitation-card/invitation.module';
 import { LogoDesignModule, logoDesignRoutes } from './logo-design/logo-design.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { DashboardAuthGuard } from '../../services/dashboardAuthGuard';
 
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
     ],
     imports: [
         RouterModule.forChild(appRoutes), BrowserAnimationsModule,
-        FlexLayoutModule, MatModule,
+        FlexLayoutModule, MatModule, SharedModule,
         Angular2FontawesomeModule, InvitaionModule, LogoDesignModule
     ],
     providers: [DashboardAuthGuard, AppSerceService],

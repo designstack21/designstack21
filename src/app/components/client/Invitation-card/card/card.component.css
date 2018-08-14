@@ -17,6 +17,11 @@
 
 .card-details {
     margin-top: 10px;
+    text-align: justify;
+}
+
+.card-details p {
+    line-height: 1.5;
 }
 
 .card-name {

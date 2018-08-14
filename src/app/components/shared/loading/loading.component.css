@@ -1,0 +1,9 @@
+.loading {
+    height: 100%;
+    width: 100%;
+    background-color: #b9b9b9;
+}
+
+.loading .loader {
+    position: relative;
+}
