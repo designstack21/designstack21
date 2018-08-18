@@ -1,40 +1,49 @@
-<div class="card-details-container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card-slider ">
-                <slideshow [height]="'300px'" [imageUrls]="imageSources"></slideshow>
+<mat-card>
+    <div class="card-details-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-slider ">
+                    <slideshow [height]="'300px'" [imageUrls]="imageSources"></slideshow>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card-details">
-                <h6>Card-152852
-                    <button mat-icon-button color="warn">
+            <div class="col-md-6">
+                <div class="card-details">
+                    <h6 class="card-title"><span>Card-</span>152852
+                        <button mat-icon-button class="btn-right" color="warn">
                         <i class="fa fa-heart"></i>
                     </button>
-                </h6>
-                <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
-                <div>
-                    <button mat-raised-button color="primary">Request demo card</button>
-                    <button mat-raised-button color="primary">Design online</button>
+                    </h6>
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
+                    <div class="col-md-12 card-req-container">
+                        <div class="row">
+                            <div class="col-md-7"> <button mat-raised-button color="primary">Request demo card</button></div>
+                            <div class="col-md-5"><button mat-raised-button color="primary">Design online</button></div>
+                        </div>
+                    </div>
+                    <div class="pricing-details">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>Charges</h6>
+                            </div>
+                            <div class="col-md-3">Per card</div>
+                            <div class="col-md-9"><span matTooltip="Price subject to order quantity"><i class="fa fa-inr"></i> 18.25</span></div>
+                            <div class="col-md-3">Design </div>
+                            <div class="col-md-9"><i class="fa fa-inr"></i> 258</div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h1>Pricing details</h1>
-                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <h3>Card Details </h3>
-            <div class="tab-details">
+            <div class="col-md-12 about-card">
+                <h3>Card Details </h3>
+                <hr>
                 <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
                     electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
                 <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
                     electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
-            </div>
-            <hr>
-            <h3>User Review</h3>
-            <div class="tab-details">
+                <h3>User Review</h3>
+                <hr>
                 <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
                     electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
@@ -42,7 +51,6 @@
                     electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
             </div>
-
         </div>
     </div>
-</div>
+</mat-card>
