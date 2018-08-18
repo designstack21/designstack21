@@ -8,7 +8,7 @@ let logoController = {
             form.logoDescription = req.body.logoDescription,
             form.save(err => {
                 if (err) {
-                    console.log(err);
+                    console.log(err); 
                     throw err;
                 }
                 return done(null, logoForm);
