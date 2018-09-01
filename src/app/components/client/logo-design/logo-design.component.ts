@@ -12,6 +12,11 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class LogoDesignComponent implements OnInit {
 
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
+
   logoForm: FormGroup;
   @ViewChild('logoTitle') logoTitle: ElementRef;
   @ViewChild('logoCaption') logoCaption: ElementRef;
@@ -50,17 +55,26 @@ export class LogoDesignComponent implements OnInit {
 
   ngOnInit() {
 
+    this.firstFormGroup = this.fb.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.fb.group({
+      secondCtrl: ['', Validators.required]
+    });
+
     this.logoForm = this.fb.group({
       logoTitle: ['', Validators.required],
       logoCaption: '',
       logoDescription: '',
     });
 
-    this.logoForm.setValue({
-      logoTitle: JSON.parse(localStorage.getItem('logoFormDetails')).logoTitle || '',
-      logoCaption: JSON.parse(localStorage.getItem('logoFormDetails')).logoCaption || '',
-      logoDescription: JSON.parse(localStorage.getItem('logoFormDetails')).logoDescription || ''
-    });
+    if (localStorage.getItem("logoFormDetails") === null) {
+      this.logoForm.setValue({
+        logoTitle: JSON.parse(localStorage.getItem('logoFormDetails')).logoTitle || '',
+        logoCaption: JSON.parse(localStorage.getItem('logoFormDetails')).logoCaption || '',
+        logoDescription: JSON.parse(localStorage.getItem('logoFormDetails')).logoDescription || ''
+      });
+    }
 
     this.logoForm.valueChanges.pipe(auditTime(5000)).subscribe(value => {
       if (value.logoTitle.length > 3 || value.logoCaption.length > 5 || value.logoDescription.length > 10)

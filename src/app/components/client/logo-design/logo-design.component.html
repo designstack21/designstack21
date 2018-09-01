@@ -1,6 +1,6 @@
 <div class="logo-container">
 
-<form [formGroup]="logoForm" (ngSubmit)="saveLogoInfo(logoForm)">
+	<!-- <form [formGroup]="logoForm" (ngSubmit)="saveLogoInfo(logoForm)">
 
 	<mat-card>
 
@@ -33,7 +33,75 @@
 
 	</mat-card>
 
-</form>
+</form> -->
+
+	<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+		{{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+	</button>
+	<mat-horizontal-stepper [linear]="isLinear" #stepper>
+		<mat-step [stepControl]="firstFormGroup">
+			<form [formGroup]="firstFormGroup">
+				<ng-template matStepLabel>Fill out logo details</ng-template>
+
+				<mat-card>
+
+					<mat-card-title>Add information about your creative logo</mat-card-title>
+
+					<mat-form-field>
+						<input matInput placeholder="Title" #logoTitle formControlName="logoTitle" required>
+					</mat-form-field>
+
+
+					<mat-form-field>
+						<input matInput placeholder="Caption" formControlName="logoCaption" #logoCaption>
+					</mat-form-field>
+
+					<br>
+
+					<angular-editor formControlName="logoDescription" #logoDescription [config]="editorConfig"></angular-editor>
+
+					<br>
+
+					<label class="custom-file">
+						<input type="file" id="file" class="custom-file-input">
+						<span class="custom-file-control"></span>
+					</label>
+
+					<mat-card-footer>
+						<!-- <button mat-raised-button matStepperNext color="primary" [disabled]="logoForm.invalid">Next</button> -->
+						<button mat-raised-button matStepperNext color="primary">Next</button>
+					</mat-card-footer>
+
+				</mat-card>
+
+			</form>
+		</mat-step>
+		<mat-step [stepControl]="secondFormGroup">
+			<form [formGroup]="secondFormGroup">
+				<ng-template matStepLabel>Choose logo package</ng-template>
+				<mat-form-field>
+					<input matInput placeholder="Address" formControlName="secondCtrl" required>
+				</mat-form-field>
+				<div>
+					<button mat-button matStepperPrevious>Back</button>
+					<button mat-button matStepperNext>Next</button>
+				</div>
+			</form>
+		</mat-step>
+		<mat-step>
+			<ng-template matStepLabel>submit</ng-template>
+			You are now done.
+			<div>
+
+				<mat-card-footer>
+					<button mat-button matStepperPrevious>Back</button>
+					<button mat-button (click)="stepper.reset()">Reset</button>
+					<button mat-raised-button color="primary" [disabled]="logoForm.invalid">Save</button>
+				</mat-card-footer>
+
+			</div>
+		</mat-step>
+	</mat-horizontal-stepper>
 
 
 </div>

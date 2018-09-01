@@ -37,18 +37,14 @@ let loginController = {
 
     },
     login: function (req, res) {
-        return passport.authenticate('local', { failureRedirect: '/auth/redirecto?msg=Invalid username and password', successRedirect: '/auth/redirecto?url=dashboard' });
+        return passport.authenticate('local', { failureRedirect: '/auth/redirecto?url=login', successRedirect: '/auth/redirecto?url=dashboard' });
     },
     logout: function (req, res) {
         req.logout();
         return res.status(302).send({ url: '/' });
     },
     redirecto: function (req, res) {
-
-        if (!req.query.url) {
-            return res.status(req.query.statusCode || 200).send({ msg: req.query.msg });
-        }
-
+        
         return res.status(302).send({ url: req.query.url });
     },
 }
