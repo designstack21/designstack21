@@ -69,7 +69,6 @@
 
 							<div class="logo-hint-group">
 								<div class="logo-footer-hint">Each logo would be unique as each artist has unique taste of art in designing.</div>
-								<div class="logo-pack-selected" *ngIf="logoPack.length >0">Selected logo : {{logoPack}}</div>
 							</div>
 
 							<div class="logo-form2-btns">
@@ -84,15 +83,16 @@
 
 			</form>
 		</mat-step>
-		
+
 		<mat-step>
 			<ng-template matStepLabel>submit</ng-template>
 			You are now done.
 
 			<mat-card-footer>
+				<div class="logo-pack-selected" *ngIf="logoPack.length >0">Selected logo : {{logoPack}}</div>
 				<button mat-button matStepperPrevious>Back</button>
 				<button mat-button (click)="stepper.reset()">Reset</button>
-				<button mat-raised-button color="primary" [disabled]="logoForm.invalid" (click)="logoForm.ngSubmit.emit();logoPackageForm.ngSubmit.emit()" >Submit</button>
+				<button mat-raised-button color="primary" [disabled]="logoForm.invalid" (click)="logoForm.ngSubmit.emit();logoPackageForm.ngSubmit.emit()">Pay now</button>
 			</mat-card-footer>
 
 		</mat-step>
