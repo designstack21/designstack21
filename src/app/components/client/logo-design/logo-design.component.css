@@ -82,3 +82,27 @@ label {
 .custom-file-control:lang(en)::after {
     content: "Upload image sample...";
 }
+
+.logo-form2-footer {
+    display: flex;
+}
+
+.logo-hint-group {
+    flex-basis: 80%;
+}
+
+.logo-form2-btns button {
+    margin-left: 10px;
+}
+
+.logo-footer-hint, .logo-pack-selected {
+    text-align: left;
+}
+
+.logo-pack-selected {
+    font-weight: bold;
+}
+
+.logo-footer-hint {
+    color: rebeccapurple;
+}

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoDesignComponent } from './logo-design.component';
 import { Routes } from '@angular/router';
@@ -12,7 +13,7 @@ export const logoDesignRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		MatModule, FormsModule, ReactiveFormsModule, AngularEditorModule
+		MatModule, FormsModule, ReactiveFormsModule, AngularEditorModule, CommonModule
 	],
 	declarations: [
 		LogoDesignComponent

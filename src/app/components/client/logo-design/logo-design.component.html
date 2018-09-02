@@ -38,9 +38,11 @@
 	<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
 		{{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 	</button>
+
 	<mat-horizontal-stepper [linear]="isLinear" #stepper>
-		<mat-step [stepControl]="firstFormGroup">
-			<form [formGroup]="firstFormGroup">
+		<mat-step [stepControl]="logoFormGroup">
+
+			<form [formGroup]="logoForm">
 				<ng-template matStepLabel>Fill out logo details</ng-template>
 
 				<mat-card>
@@ -68,38 +70,61 @@
 					</label>
 
 					<mat-card-footer>
-						<!-- <button mat-raised-button matStepperNext color="primary" [disabled]="logoForm.invalid">Next</button> -->
 						<button mat-raised-button matStepperNext color="primary">Next</button>
+					</mat-card-footer>
+
+				</mat-card>
+			</form>
+
+		</mat-step>
+
+		<mat-step [stepControl]="logoPackageFormGroup">
+			<form [formGroup]="logoPackageForm">
+				<ng-template matStepLabel>Choose logo package</ng-template>
+
+				<mat-card>
+
+					<mat-card-title>Get to choose from multiple logos. Choose from the following packages:</mat-card-title>
+
+					<mat-form-field>
+						<mat-select placeholder="Select your variety" (selectionChange)="onLogoPackSelected($event.value)">
+							<mat-option *ngFor="let package of logoPackages" [value]="package.value">
+								{{package.viewValue}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+
+					<mat-card-footer>
+
+						<div class="logo-form2-footer">
+
+							<div class="logo-hint-group">
+								<div class="logo-footer-hint">Each logo would be unique as each artist has unique taste of art in designing.</div>
+								<div class="logo-pack-selected" *ngIf="logoPack.length >0">Selected logo : {{logoPack}}</div>
+							</div>
+
+							<div class="logo-form2-btns">
+								<button mat-raised-button matStepperPrevious color="primary">Back</button>
+								<button mat-raised-button matStepperNext color="primary">Next</button>
+							</div>
+						</div>
+
 					</mat-card-footer>
 
 				</mat-card>
 
 			</form>
 		</mat-step>
-		<mat-step [stepControl]="secondFormGroup">
-			<form [formGroup]="secondFormGroup">
-				<ng-template matStepLabel>Choose logo package</ng-template>
-				<mat-form-field>
-					<input matInput placeholder="Address" formControlName="secondCtrl" required>
-				</mat-form-field>
-				<div>
-					<button mat-button matStepperPrevious>Back</button>
-					<button mat-button matStepperNext>Next</button>
-				</div>
-			</form>
-		</mat-step>
 		<mat-step>
 			<ng-template matStepLabel>submit</ng-template>
 			You are now done.
-			<div>
 
-				<mat-card-footer>
-					<button mat-button matStepperPrevious>Back</button>
-					<button mat-button (click)="stepper.reset()">Reset</button>
-					<button mat-raised-button color="primary" [disabled]="logoForm.invalid">Save</button>
-				</mat-card-footer>
+			<mat-card-footer>
+				<button mat-button matStepperPrevious>Back</button>
+				<button mat-button (click)="stepper.reset()">Reset</button>
+				<button mat-raised-button color="primary" [disabled]="logoForm.invalid">Save</button>
+			</mat-card-footer>
 
-			</div>
 		</mat-step>
 	</mat-horizontal-stepper>
 

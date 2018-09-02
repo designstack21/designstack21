@@ -13,15 +13,20 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 export class LogoDesignComponent implements OnInit {
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-
-
   logoForm: FormGroup;
+  logoPackageForm: FormGroup;
+  logoPack: string = "";
+
   @ViewChild('logoTitle') logoTitle: ElementRef;
   @ViewChild('logoCaption') logoCaption: ElementRef;
   @ViewChild('logoDescription') logoDescription: ElementRef;
 
+  logoPackages = [
+    { value: 'pack1', viewValue: 'Logo pack 1 - You will get to choose from 5 different logos developed by 5 different experienced designers.' },
+    { value: 'pack2', viewValue: 'Logo pack 2 - You will get to choose from 8 different logos developed by 8 different experienced designers.' },
+    { value: 'pack3', viewValue: 'Logo pack 3- You will get to choose from 8 different logos developed by 12 different experienced designers.' },
+    { value: 'pack4', viewValue: 'Logo pack 4- You will get to choose from 20 different logos developed by 20 different experienced designers.' },
+  ];
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -47,26 +52,21 @@ export class LogoDesignComponent implements OnInit {
     ]
   }
 
-
-
   private alive: boolean;
 
   constructor(private _logoDesignService: LogoDesignService, private fb: FormBuilder) { }
 
   ngOnInit() {
 
-    this.firstFormGroup = this.fb.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this.fb.group({
-      secondCtrl: ['', Validators.required]
-    });
-
     this.logoForm = this.fb.group({
       logoTitle: ['', Validators.required],
       logoCaption: '',
       logoDescription: '',
     });
+    this.logoPackageForm = this.fb.group({
+      secondCtrl: ['', Validators.required]
+    });
+
 
     if (localStorage.getItem("logoFormDetails") === null) {
       this.logoForm.setValue({
@@ -80,6 +80,11 @@ export class LogoDesignComponent implements OnInit {
       if (value.logoTitle.length > 3 || value.logoCaption.length > 5 || value.logoDescription.length > 10)
         localStorage.setItem('logoFormDetails', JSON.stringify(value));
     })
+  }
+
+  onLogoPackSelected(e) {
+    console.log('logo pack selected ', e);
+    this.logoPack = e;
   }
 
   saveLogoInfo(form) {
