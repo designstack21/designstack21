@@ -87,6 +87,14 @@ export class LogoDesignComponent implements OnInit {
     this.logoPack = e;
   }
 
+  logoFormSubmit() {
+    console.log(this.logoForm.value);
+  }
+
+  logoPackageFormSubmit() {
+    console.log(this.logoPackageForm.value);
+  }
+
   saveLogoInfo(form) {
     console.log('title: ', form.value.logoTitle);
     console.log('caption: ', form.value.logoCaption);
