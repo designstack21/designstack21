@@ -64,7 +64,7 @@ export class LogoDesignComponent implements OnInit {
       logoDescription: '',
     });
     this.logoPackageForm = this.fb.group({
-      secondCtrl: ['', Validators.required]
+      logoPackSelected: ['', Validators.required]
     });
 
 
