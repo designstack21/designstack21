@@ -77,7 +77,7 @@ export class LogoDesignComponent implements OnInit {
     }
 
     this.logoForm.valueChanges.pipe(auditTime(5000)).subscribe(value => {
-      if (value.logoTitle.length > 3 || value.logoCaption.length > 5 || value.logoDescription.length > 10)
+      if ((value.logoTitle && value.logoTitle.length > 3) || (value.logoCaption && value.logoCaption.length > 5) || (value.logoDescription && value.logoDescription.length > 10))
         localStorage.setItem('logoFormDetails', JSON.stringify(value));
     })
   }

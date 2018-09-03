@@ -89,7 +89,7 @@
 			You are now done.
 
 			<mat-card-footer>
-				<div class="logo-pack-selected" *ngIf="logoPack.length >0">Selected Logo Pack : {{logoPack}}</div>
+				<div class="logo-pack-selected" *ngIf="logoPack && logoPack.length >0">Selected Logo Pack : {{logoPack}}</div>
 				<button mat-button matStepperPrevious>Back</button>
 				<button mat-button (click)="stepper.reset()">Reset</button>
 				<button mat-raised-button color="primary" [disabled]="logoForm.invalid" (click)="formOne.ngSubmit.emit();formTwo.ngSubmit.emit()">Pay now</button>
